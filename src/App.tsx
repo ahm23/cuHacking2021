@@ -7,26 +7,30 @@ import SettingsModal from './Settings';
 
 
 
-
+interface AppSettings {
+    moodleToken?: string;
+}
 
 interface AppProps {}
 interface AppState {
-    addEventModal: boolean;
+    settings: AppSettings;
+    enabledModal: string; 
 }
 
 class App extends React.Component<AppProps, AppState> {
     constructor(props: Readonly<AppProps>) {
         super(props);
         this.state = {
-            addEventModal: false
+            settings: {moodleToken: 'ue93fnoct2svgnsfcruvhv8e3l'},
+            enabledModal: ''
         };  
         
     }
 
-    saveNewToken(newToken: string) {
-
+    saveSettings(settings: AppSettings) {
+        
+            
     }
-
 
     render() {
         $.ajax({
@@ -41,7 +45,7 @@ class App extends React.Component<AppProps, AppState> {
                 <header>
                     cuLearn++
                     <div>
-                        <svg id="revert" className="header-icon" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="533.333px" height="533.333px" viewBox="0 0 533.333 533.333" xmlSpace="preserve"><g>	<path d="M416.667,333.333v-66.666H250V200h166.667v-66.667l100,100L416.667,333.333z M383.333,300v133.333H216.667v100l-200-100V0   h366.667v166.667H350V33.333H83.333L216.667,100v300H350V300H383.333z" /></g></svg>
+                        <svg onClick={() => this.setState({enabledModal: 'settings'})} id="revert" className="header-icon" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="533.333px" height="533.333px" viewBox="0 0 533.333 533.333" xmlSpace="preserve"><g>	<path d="M416.667,333.333v-66.666H250V200h166.667v-66.667l100,100L416.667,333.333z M383.333,300v133.333H216.667v100l-200-100V0   h366.667v166.667H350V33.333H83.333L216.667,100v300H350V300H383.333z" /></g></svg>
                     </div>
                 </header>
                 <main className="dash">
@@ -67,7 +71,7 @@ class App extends React.Component<AppProps, AppState> {
                         </div>
                     </section>
                     </section>
-                    <SettingsModal moodleToken="ahgahah" modifyToken={this.saveNewToken} click={() => this.setState({addEventModal: true})}/>
+                    <SettingsModal enabled={this.state.enabledModal === 'settings' ? true : false} settings={this.state.settings} closeModal={() => this.setState({enabledModal: ''})} />
                 </main>
             </>
         );
