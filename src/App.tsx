@@ -3,20 +3,39 @@ import $ from 'jquery';
 import Schedule from './Schedule';
 import Events from './Events';
 import AddEvent from './Events';
+import SettingsModal from './Settings';
+
+
+
+
 
 interface AppProps {}
 interface AppState {
-
+    addEventModal: boolean;
 }
 
 class App extends React.Component<AppProps, AppState> {
     constructor(props: Readonly<AppProps>) {
         super(props);
         this.state = {
-        };
+            addEventModal: false
+        };  
+        
     }
 
+    saveNewToken(newToken: string) {
+
+    }
+
+
     render() {
+        $.ajax({
+            url: "https://cors-anywhere.herokuapp.com/http://158.69.1.52/search/user_events/_doc/testUser",
+            type: "GET",
+            headers: {"Authorization": "ApiKey MVBUaHhYWUJ6akMxbF93NF9QYlA6WVJPTlJxT0lSNjZ1UWU4Yklia0E5QQo="}
+        }).done(function(dat) {
+            console.log(dat)
+        });
         return (
             <>
                 <header>
@@ -39,7 +58,7 @@ class App extends React.Component<AppProps, AppState> {
                             <Schedule />
                         </div>
                         <div className="panel">
-                        <div className="header red-bg">Checklist</div>
+                        <div className="header red-bg">Classes</div>
                         </div>
                     </section>
                     <section id="dash-content-right" className="content">
@@ -48,7 +67,7 @@ class App extends React.Component<AppProps, AppState> {
                         </div>
                     </section>
                     </section>
-                    <AddEvent />
+                    <SettingsModal moodleToken="ahgahah" modifyToken={this.saveNewToken} click={() => this.setState({addEventModal: true})}/>
                 </main>
             </>
         );

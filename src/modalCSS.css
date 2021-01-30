@@ -1,0 +1,73 @@
+.modal-wrapper {
+    display: flex;
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgb(93,93,93,0.6);
+}
+
+.modal {
+    display: grid;
+    gap: 20px;
+    grid-template-rows: 45px 1fr 45px;
+    grid-template-columns: 100%;
+    width: 425px;
+    min-height: 600px;
+    max-height: 800px;
+    margin: auto;
+    padding: 10px 16px;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.modal-header {
+    width: 100%;
+    border-bottom: 1px solid rgb(153, 153, 153);
+    padding: 5px 0;
+    font-size: 24px;
+    font-family: Nunito, sans-serif;
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid rgb(153, 153, 153);
+    justify-content: flex-end;
+}
+
+
+.modal-footer .saveButton {
+    height: 100%;
+    width: 100px;
+    margin: 0 5px;
+    background: rgb(168, 241, 134);
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    outline: 0;
+    transition: background .4s cubic-bezier(0.455, 0.030, 0.515, 0.955);
+}
+
+.modal-footer .saveButton:hover {
+    color: var(--color-light-gray);
+}
+
+.modal-footer .cancelButton {
+    width: 100px;
+    height: 100%;
+    margin: 0 5px;
+    background: rgb(231, 107, 107);
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background .4s cubic-bezier(0.455, 0.030, 0.515, 0.955);
+}
+
+.modal-footer .cancelButton:hover {
+    color: var(--color-light-gray);
+}
