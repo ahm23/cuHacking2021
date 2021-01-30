@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import Schedule from './Schedule';
+import Events from './Events';
 
 interface AppProps {}
 interface AppState {
@@ -13,8 +14,6 @@ class App extends React.Component<AppProps, AppState> {
         this.state = {
         };
     }
-
-
 
     render() {
         return (
@@ -44,7 +43,7 @@ class App extends React.Component<AppProps, AppState> {
                     </section>
                     <section id="dash-content-right" className="content">
                         <div className="panel">
-                        <div className="header black-bg">Upcoming Deadlines &amp; Events</div>
+                            <Events />
                         </div>
                     </section>
                     </section>
