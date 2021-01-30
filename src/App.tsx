@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import Schedule from './Schedule';
 import Events from './Events';
+import AddEvent from './Events';
 
 interface AppProps {}
 interface AppState {
@@ -47,6 +48,7 @@ class App extends React.Component<AppProps, AppState> {
                         </div>
                     </section>
                     </section>
+                    <AddEvent />
                 </main>
             </>
         );
