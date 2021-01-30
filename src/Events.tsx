@@ -1,44 +1,54 @@
 import React from 'react';
 import $ from 'jquery';
 
-interface AppProps {
-    
+interface EventsAppProps {
+    click():void;
 }
 
-interface AppState {
+interface EventsAppState {
     name: string;
+    eventsList: Array<Array<string>>;
 }
 
-class Events extends React.Component<AppProps, AppState> {
-    constructor(props: Readonly<AppProps>) {
+const DATA = []
+
+class Events extends React.Component<EventsAppProps, EventsAppState> {
+    constructor(props: Readonly<EventsAppProps>) {
         super(props);
         this.state = {
-            name:'zak'
+            name:'zak',
+            eventsList: []
         };
     }
 
-    render() {
-        // Plus icon
-        // 
-        return (
-            <>
-                <div className="header black-bg">Upcoming Deadlines &amp; Events</div>
-            </>
-        );
+    click = () => {}
+
+    addEvent(name: string, startDate: string, endDate: string){
+        let concatArr = [[name, startDate, endDate]];
+        this.setState({ eventsList: this.state.eventsList.concat(concatArr) });
     }
-}
-
-class AddEvent extends React.Component<AppProps, AppState> {
 
     render() {
         // Plus icon
         // 
-        return (
+        let content = "";
+        for (let i = 0; i < this.state.eventsList.length; i++){
+            for (let j = 0; j < this.state.eventsList[i].length; j++){
+                content = content.concat(this.state.eventsList[i][j]).concat(" ");
+            }
+            content = content.concat("<br/>");
+        }
+        return(
             <>
-                <div></div>
+            <div className="header black-bg">
+                Upcoming Deadlines &amp; Events<img src="plus-sign-svgrepo-com.svg" className="header-icon add-event" onClick={this.click}/><br/>
+                </div>
+                <div dangerouslySetInnerHTML={ {__html: content} }></div>
             </>
         );
-        }
+                
+    }
+
 }
 
 export default Events;
