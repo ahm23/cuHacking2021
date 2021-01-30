@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-
+import Schedule from './Schedule';
 
 interface AppProps {}
 interface AppState {
@@ -36,9 +36,7 @@ class App extends React.Component<AppProps, AppState> {
                     <section id="dash-content" className="content_wrapper">
                     <section id="dash-content-left" className="content">
                         <div className="panel">
-                        <div className="header red-bg">Schedule</div>
-                        <div id="schedule" className="schedule">
-                        </div>
+                            <Schedule />
                         </div>
                         <div className="panel">
                         <div className="header red-bg">Checklist</div>
