@@ -6,7 +6,6 @@ import AddEvent from './Events';
 import SettingsModal from './Settings';
 
 
-
 interface AppSettings {
     moodleToken?: string;
 }
@@ -24,22 +23,9 @@ class App extends React.Component<AppProps, AppState> {
             settings: {moodleToken: 'ue93fnoct2svgnsfcruvhv8e3l'},
             enabledModal: ''
         };  
-        
-    }
-
-    saveSettings(settings: AppSettings) {
-        
-            
     }
 
     render() {
-        $.ajax({
-            url: "https://cors-anywhere.herokuapp.com/http://158.69.1.52/search/user_events/_doc/testUser",
-            type: "GET",
-            headers: {"Authorization": "ApiKey MVBUaHhYWUJ6akMxbF93NF9QYlA6WVJPTlJxT0lSNjZ1UWU4Yklia0E5QQo="}
-        }).done(function(dat) {
-            console.log(dat)
-        });
         return (
             <>
                 <header>

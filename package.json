@@ -4,7 +4,8 @@
   "description": "how it feels to chew 5 gum",
   "main": "index.js",
   "scripts": {
-    "deploy": "react-scripts build && aws s3 sync build/ s3://",
+    "deploy": "react-scripts build && scp -r ./build/* bobby@158.69.1.52:/var/www/html",
+    "update": "scp -r ./src bobby@158.69.1.52:/var/www/html",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

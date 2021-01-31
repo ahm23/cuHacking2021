@@ -39,6 +39,7 @@ class SettingsModal extends React.Component<SettingsProps, SettingsState> {
         tempSettings.moodleToken=" ";
         this.setState({settings: tempSettings});
     }
+    
     disableMoodle() {
         let tempSettings = this.state.settings;
         tempSettings.moodleToken=undefined;

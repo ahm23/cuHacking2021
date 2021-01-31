@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 
 interface EventsAppProps {
-    click():void;
+
 }
 
 interface EventsAppState {
